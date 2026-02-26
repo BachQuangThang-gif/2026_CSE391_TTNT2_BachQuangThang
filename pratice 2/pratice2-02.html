@@ -1,217 +1,202 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-  <meta charset="UTF-8" />
-  <title>Travel Goals</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joe's Travel Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
 
-  <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Oleo+Script:wght@700&family=Quicksand:wght@300;500&display=swap"
-    rel="stylesheet"
-  />
+        body {
+            background-color: #9d337b; 
+            display: flex;
+            justify-content: center;
+            padding: 20px 0;
+        }
 
-  <style>
-    /* Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        .wrapper {
+            width: 95%;
+            max-width: 1200px;
+            background-color: #fff;
+            border: 2px solid #ff9966; 
+        }
+        header {
+            background-color: #55b89a; 
+            padding: 10px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #ff9966;
+        }
 
-    body {
-      font-family: "Quicksand", sans-serif;
-      background-color: #f2f2f2;
-      color: #333;
-    }
+        .logo {
+            color: #ffff00;
+            font-weight: bold;
+            font-style: italic;
+            font-size: 1.4rem;
+        }
 
-    /* ================= HEADER ================= */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 50px;
-      position: absolute;
-      width: 100%;
-      top: 0;
-      left: 0;
-      z-index: 10;
-    }
+        nav a {
+            color: #ffff00;
+            text-decoration: none;
+            margin-left: 15px;
+            font-size: 0.8rem;
+            border: 1px solid #ffff00;
+            padding: 2px 8px;
+        }
+        main {
+            display: block;
+        }
+        .hero {
+            height: 450px;
+            background: url('ocean.jpg') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 2px solid #ff9966;
+        }
 
-    #page-logo a {
-      font-family: "Oleo Script", cursive;
-      font-size: 30px;
-      color: #f9c74f;
-      text-decoration: none;
-    }
+        .hero-content {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 30px 50px;
+            text-align: center;
+            border-radius: 8px;
+        }
 
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 30px;
-    }
+        .hero-content h1 {
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+        }
 
-    nav a {
-      text-decoration: none;
-      color: #f9c74f;
-      font-weight: 500;
-    }
+        .hero-content p {
+            font-size: 0.75rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
 
-    /* ================= HERO ================= */
-    #hero {
-      height: 600px;
-      background-image: url("images/ocean.jpg");
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+        .btn {
+            background-color: #ffff00;
+            color: #000;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.8rem;
+            border-radius: 4px;
+        }
 
-    #hero-content {
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 40px 60px;
-      text-align: center;
-      border-radius: 6px;
-      color: white;
-    }
+        .highlights {
+            background-color: #e1f5fe; 
+            padding: 40px 20px;
+            text-align: center;
+        }
 
-    #hero-content h1 {
-      font-family: "Raleway", sans-serif;
-      font-size: 40px;
-      margin-bottom: 10px;
-    }
+        .highlights h2 {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+            color: #444;
+        }
 
-    #hero-content p {
-      margin-bottom: 20px;
-    }
+        .card-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
 
-    #hero-content a {
-      text-decoration: none;
-      background-color: #f9c74f;
-      color: black;
-      padding: 10px 20px;
-      border-radius: 4px;
-      font-weight: bold;
-    }
+        .card {
+            flex: 1;
+        }
 
-    /* ================= HIGHLIGHTS ================= */
-    #highlights {
-      padding: 60px 50px;
-      background-color: #d9f3f2;
-      text-align: center;
-    }
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
 
-    #highlights h2 {
-      margin-bottom: 30px;
-      font-family: "Raleway", sans-serif;
-    }
+        .card p {
+            margin-top: 15px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: #333;
+        }
 
-    #destinations {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      list-style: none;
-    }
+        .card p span {
+            color: #009688;
+            font-weight: normal;
+        }
 
-    .destination {
-      width: 300px;
-    }
+        /* FOOTER */
+        footer {
+            background-color: #1a1a1a;
+            padding: 20px;
+            text-align: center;
+            border-top: 2px solid #ff9966;
+        }
 
-    .destination img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-
-    .destination p {
-      margin-top: 10px;
-    }
-
-    /* ================= FOOTER ================= */
-    footer {
-      background-color: #222;
-      padding: 20px;
-    }
-
-    footer ul {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      gap: 40px;
-    }
-
-    footer img {
-      width: 30px;
-      height: 30px;
-    }
-  </style>
+        footer i {
+            color: white;
+            font-size: 2rem;
+            margin: 0 15px;
+            cursor: pointer;
+        }
+    </style>
 </head>
-
 <body>
 
-  <header>
-    <div id="page-logo">
-      <a href="#">Travel Goals</a>
+    <div class="wrapper">
+        <header>
+            <div class="logo">TRAVEL GOALS</div>
+            <nav>
+                <a href="#">Destinations</a>
+                <a href="#">About</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>JOE'S TRAVEL PAGE</h1>
+                    <p>Let's explore the world together!</p>
+                    <a href="#" class="btn">Discover places</a>
+                </div>
+            </section>
+
+            <section class="highlights">
+                <h2>HIGHLIGHTS</h2>
+                <div class="card-container">
+                    <div class="card">
+                        <img src="miami.jpg" alt="Miami">
+                        <p>MIAMI <span>USA</span></p>
+                    </div>
+                    <div class="card">
+                        <img src="munich.jpg" alt="Munich">
+                        <p>MUNICH <span>GERMANY</span></p>
+                    </div>
+                    <div class="card">
+                        <img src="barcelona.jpg" alt="Barcelona">
+                        <p>BARCELONA <span>SPAIN</span></p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-facebook"></i>
+        </footer>
     </div>
-    <nav>
-      <ul>
-        <li><a href="#">Destinations</a></li>
-        <li><a href="#">About</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-
-    <!-- HERO SECTION -->
-    <section id="hero">
-      <div id="hero-content">
-        <h1>Joe's Travel Page</h1>
-        <p>Let's explore the world together!</p>
-        <a href="#">Discover places</a>
-      </div>
-    </section>
-
-    <!-- HIGHLIGHTS -->
-    <section id="highlights">
-      <h2>Highlights</h2>
-
-      <ul id="destinations">
-        <li class="destination">
-          <img src="pratice 2/miami.jpg" alt="Miami">
-          <p>Miami <strong>USA</strong></p>
-        </li>
-
-        <li class="destination">
-          <img src="pratice 2/munich.jpg" alt="Munich">
-          <p>Munich <strong>Germany</strong></p>
-        </li>
-
-        <li class="destination">
-          <img src="pratice 2/barcelona.jpg" alt="Barcelona">
-          <p>Barcelona <strong>Spain</strong></p>
-        </li>
-      </ul>
-    </section>
-
-  </main>
-
-  <footer>
-    <ul>
-      <li>
-        <a href="https://www.instagram.com">
-          <img src="images/icons/insta.png" alt="Instagram">
-        </a>
-      </li>
-      <li>
-        <a href="https://www.facebook.com">
-          <img src="images/icons/facebook.png" alt="Facebook">
-        </a>
-      </li>
-    </ul>
-  </footer>
 
 </body>
 </html>
-fonts.googleapis.com
