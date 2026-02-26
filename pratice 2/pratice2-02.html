@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Travel Goals</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Oleo+Script:wght@700&family=Quicksand:wght@300;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Quicksand", sans-serif;
+      background-color: #f2f2f2;
+      color: #333;
+    }
+
+    /* ================= HEADER ================= */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+
+    #page-logo a {
+      font-family: "Oleo Script", cursive;
+      font-size: 30px;
+      color: #f9c74f;
+      text-decoration: none;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #f9c74f;
+      font-weight: 500;
+    }
+
+    /* ================= HERO ================= */
+    #hero {
+      height: 600px;
+      background-image: url("images/ocean.jpg");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #hero-content {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 40px 60px;
+      text-align: center;
+      border-radius: 6px;
+      color: white;
+    }
+
+    #hero-content h1 {
+      font-family: "Raleway", sans-serif;
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    #hero-content p {
+      margin-bottom: 20px;
+    }
+
+    #hero-content a {
+      text-decoration: none;
+      background-color: #f9c74f;
+      color: black;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    /* ================= HIGHLIGHTS ================= */
+    #highlights {
+      padding: 60px 50px;
+      background-color: #d9f3f2;
+      text-align: center;
+    }
+
+    #highlights h2 {
+      margin-bottom: 30px;
+      font-family: "Raleway", sans-serif;
+    }
+
+    #destinations {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .destination {
+      width: 300px;
+    }
+
+    .destination img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .destination p {
+      margin-top: 10px;
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background-color: #222;
+      padding: 20px;
+    }
+
+    footer ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      gap: 40px;
+    }
+
+    footer img {
+      width: 30px;
+      height: 30px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div id="page-logo">
+      <a href="#">Travel Goals</a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Destinations</a></li>
+        <li><a href="#">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO SECTION -->
+    <section id="hero">
+      <div id="hero-content">
+        <h1>Joe's Travel Page</h1>
+        <p>Let's explore the world together!</p>
+        <a href="#">Discover places</a>
+      </div>
+    </section>
+
+    <!-- HIGHLIGHTS -->
+    <section id="highlights">
+      <h2>Highlights</h2>
+
+      <ul id="destinations">
+        <li class="destination">
+          <img src="pratice 2/miami.jpg" alt="Miami">
+          <p>Miami <strong>USA</strong></p>
+        </li>
+
+        <li class="destination">
+          <img src="pratice 2/munich.jpg" alt="Munich">
+          <p>Munich <strong>Germany</strong></p>
+        </li>
+
+        <li class="destination">
+          <img src="pratice 2/barcelona.jpg" alt="Barcelona">
+          <p>Barcelona <strong>Spain</strong></p>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <ul>
+      <li>
+        <a href="https://www.instagram.com">
+          <img src="images/icons/insta.png" alt="Instagram">
+        </a>
+      </li>
+      <li>
+        <a href="https://www.facebook.com">
+          <img src="images/icons/facebook.png" alt="Facebook">
+        </a>
+      </li>
+    </ul>
+  </footer>
+
+</body>
+</html>
+fonts.googleapis.com
