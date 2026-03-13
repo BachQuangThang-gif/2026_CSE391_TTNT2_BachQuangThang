@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Form Đăng Ký</title>
+<style>
+body{
+    font-family: Arial;
+    padding:40px;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+.error{
+    color:red;
+    font-size:14px;
+}
+
+.success{
+    font-size:20px;
+    color:green;
+}
+</style>
+</head>
+<body>
+
+<h2>Đăng ký tài khoản</h2>
+
+<form id="registerForm">
+
+<div class="form-group">
+<label>Họ và tên</label><br>
+<input type="text" id="fullname">
+<div class="error" id="fullnameError"></div>
+</div>
+
+<div class="form-group">
+<label>Email</label><br>
+<input type="text" id="email">
+<div class="error" id="emailError"></div>
+</div>
+
+<div class="form-group">
+<label>Số điện thoại</label><br>
+<input type="text" id="phone">
+<div class="error" id="phoneError"></div>
+</div>
+
+<div class="form-group">
+<label>Mật khẩu</label><br>
+<input type="password" id="password">
+<div class="error" id="passwordError"></div>
+</div>
+
+<div class="form-group">
+<label>Xác nhận mật khẩu</label><br>
+<input type="password" id="confirmPassword">
+<div class="error" id="confirmPasswordError"></div>
+</div>
+
+<div class="form-group">
+<label>Giới tính</label><br>
+<input type="radio" name="gender" value="Nam"> Nam
+<input type="radio" name="gender" value="Nữ"> Nữ
+<div class="error" id="genderError"></div>
+</div>
+
+<div class="form-group">
+<input type="checkbox" id="terms"> Tôi đồng ý điều khoản
+<div class="error" id="termsError"></div>
+</div>
+
+<button type="submit">Đăng ký</button>
+
+</form>
+
+<div id="successMessage" class="success"></div>
+
+<script src="exe_2.1.js"></script>
+
+</body>
+</html>

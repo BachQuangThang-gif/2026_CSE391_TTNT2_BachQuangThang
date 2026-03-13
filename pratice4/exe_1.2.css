@@ -1,0 +1,60 @@
+body{
+font-family: Arial;
+width:700px;
+margin:auto;
+}
+
+h2{
+text-align:center;
+}
+
+input,select{
+padding:6px;
+margin:5px;
+}
+
+button{
+padding:6px 12px;
+cursor:pointer;
+}
+
+.tools{
+margin:10px 0;
+}
+
+table{
+width:100%;
+border-collapse: collapse;
+margin-top:10px;
+}
+
+th,td{
+border:1px solid #ccc;
+padding:8px;
+text-align:center;
+}
+
+th{
+background:#eee;
+cursor:pointer;
+}
+
+.low-score{
+background:yellow;
+}
+
+.stats{
+margin-top:10px;
+font-weight:bold;
+}
+
+.no-result{
+text-align:center;
+color:red;
+margin-top:10px;
+font-weight:bold;
+}
+
+.sortable{
+user-select:none;
+}
