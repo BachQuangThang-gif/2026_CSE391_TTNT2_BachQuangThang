@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Form Đặt Hàng</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    padding:40px;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+.error{
+    color:red;
+    font-size:14px;
+}
+
+.counter{
+    font-size:13px;
+}
+
+.counter.over{
+    color:red;
+}
+
+#confirmBox{
+    border:1px solid #ccc;
+    padding:20px;
+    margin-top:20px;
+    display:none;
+}
+
+.success{
+    color:green;
+    font-size:20px;
+}
+
+</style>
+
+</head>
+<body>
+
+<h2>Đặt hàng trực tuyến</h2>
+
+<form id="orderForm">
+
+<div class="form-group">
+<label>Tên sản phẩm</label><br>
+<select id="product">
+<option value="">-- Chọn sản phẩm --</option>
+<option value="ao">Áo</option>
+<option value="quan">Quần</option>
+<option value="giay">Giày</option>
+</select>
+<div class="error" id="productError"></div>
+</div>
+
+<div class="form-group">
+<label>Số lượng</label><br>
+<input type="number" id="quantity" min="1" max="99">
+<div class="error" id="quantityError"></div>
+</div>
+
+<div class="form-group">
+<label>Ngày giao hàng</label><br>
+<input type="date" id="delivery">
+<div class="error" id="deliveryError"></div>
+</div>
+
+<div class="form-group">
+<label>Địa chỉ giao</label><br>
+<input type="text" id="address">
+<div class="error" id="addressError"></div>
+</div>
+
+<div class="form-group">
+<label>Ghi chú</label><br>
+<textarea id="note"></textarea><br>
+<span id="noteCounter" class="counter">0/200</span>
+<div class="error" id="noteError"></div>
+</div>
+
+<div class="form-group">
+<label>Thanh toán</label><br>
+<input type="radio" name="payment" value="COD"> COD
+<input type="radio" name="payment" value="Bank"> Chuyển khoản
+<input type="radio" name="payment" value="Wallet"> Ví điện tử
+<div class="error" id="paymentError"></div>
+</div>
+
+<div class="form-group">
+<strong>Tổng tiền: </strong>
+<span id="total">0</span> VNĐ
+</div>
+
+<button type="submit">Đặt hàng</button>
+
+</form>
+
+<div id="confirmBox">
+<h3>Xác nhận đặt hàng</h3>
+<div id="summary"></div>
+<br>
+<button id="confirmBtn">Xác nhận</button>
+<button id="cancelBtn">Hủy</button>
+</div>
+
+<div id="successMessage" class="success"></div>
+
+<script src="exe_2.2.js"></script>
+
+</body>
+</html>
