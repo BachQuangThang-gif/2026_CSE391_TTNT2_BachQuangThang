@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Form Đăng Ký</title>
+
+<style>
+
+body{
+    font-family: Arial;
+    padding:40px;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+.error{
+    color:red;
+    font-size:14px;
+}
+
+.success{
+    font-size:20px;
+    color:green;
+}
+
+.password-wrapper{
+    position:relative;
+}
+
+#togglePassword{
+    position:absolute;
+    right:10px;
+    top:6px;
+    cursor:pointer;
+}
+
+.password-strength{
+    width:100%;
+    height:8px;
+    background:#eee;
+    margin-top:5px;
+    border-radius:4px;
+}
+
+#strengthBar{
+    height:8px;
+    width:0%;
+    border-radius:4px;
+    transition:0.3s;
+}
+
+#nameCount{
+    font-size:12px;
+    color:#666;
+}
+
+</style>
+
+</head>
+<body>
+
+<h2>Đăng ký tài khoản</h2>
+
+<form id="registerForm">
+
+<div class="form-group">
+<label>Họ và tên</label><br>
+<input type="text" id="fullname" maxlength="50">
+<div id="nameCount">0/50</div>
+<div class="error" id="fullnameError"></div>
+</div>
+
+<div class="form-group">
+<label>Email</label><br>
+<input type="text" id="email">
+<div class="error" id="emailError"></div>
+</div>
+
+<div class="form-group">
+<label>Số điện thoại</label><br>
+<input type="text" id="phone">
+<div class="error" id="phoneError"></div>
+</div>
+
+<div class="form-group">
+<label>Mật khẩu</label><br>
+
+<div class="password-wrapper">
+<input type="password" id="password">
+<span id="togglePassword">👁</span>
+</div>
+
+<div class="password-strength">
+<div id="strengthBar"></div>
+</div>
+
+<div id="strengthText"></div>
+
+<div class="error" id="passwordError"></div>
+
+</div>
+
+<div class="form-group">
+<label>Xác nhận mật khẩu</label><br>
+<input type="password" id="confirmPassword">
+<div class="error" id="confirmPasswordError"></div>
+</div>
+
+<div class="form-group">
+<label>Giới tính</label><br>
+<input type="radio" name="gender" value="Nam"> Nam
+<input type="radio" name="gender" value="Nữ"> Nữ
+<div class="error" id="genderError"></div>
+</div>
+
+<div class="form-group">
+<input type="checkbox" id="terms"> Tôi đồng ý điều khoản
+<div class="error" id="termsError"></div>
+</div>
+
+<button type="submit">Đăng ký</button>
+
+</form>
+
+<div id="successMessage" class="success"></div>
+
+<script>
+
+const form = document.getElementById("registerForm")
+
+const fullname = document.getElementById("fullname")
+const email = document.getElementById("email")
+const phone = document.getElementById("phone")
+const password = document.getElementById("password")
+const confirmPassword = document.getElementById("confirmPassword")
+const terms = document.getElementById("terms")
+
+const strengthBar = document.getElementById("strengthBar")
+const strengthText = document.getElementById("strengthText")
+
+const togglePassword = document.getElementById("togglePassword")
+
+const nameCount = document.getElementById("nameCount")
+
+function showError(id,message){
+    document.getElementById(id+"Error").innerText=message
+}
+
+function clearError(id){
+    document.getElementById(id+"Error").innerText=""
+}
+
+fullname.addEventListener("input",function(){
+
+    const length = fullname.value.length
+    nameCount.innerText = length + "/50"
+
+})
+
+password.addEventListener("input",function(){
+
+    const value = password.value
+    let strength = 0
+
+    if(value.length >=6) strength++
+    if(/[A-Z]/.test(value)) strength++
+    if(/[0-9]/.test(value)) strength++
+    if(/[^A-Za-z0-9]/.test(value)) strength++
+
+    if(strength<=1){
+        strengthBar.style.width="33%"
+        strengthBar.style.background="red"
+        strengthText.innerText="Yếu"
+    }
+    else if(strength<=3){
+        strengthBar.style.width="66%"
+        strengthBar.style.background="orange"
+        strengthText.innerText="Trung bình"
+    }
+    else{
+        strengthBar.style.width="100%"
+        strengthBar.style.background="green"
+        strengthText.innerText="Mạnh"
+    }
+
+})
+
+togglePassword.addEventListener("click",function(){
+
+    if(password.type==="password"){
+        password.type="text"
+    }
+    else{
+        password.type="password"
+    }
+
+})
+
+function validateFullname(){
+
+    const value = fullname.value.trim()
+
+    if(value===""){
+        showError("fullname","Không được để trống")
+        return false
+    }
+
+    clearError("fullname")
+    return true
+}
+
+function validateEmail(){
+
+    const regex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+    if(!regex.test(email.value)){
+        showError("email","Email không hợp lệ")
+        return false
+    }
+
+    clearError("email")
+    return true
+}
+
+function validatePhone(){
+
+    const regex=/^0\d{9}$/
+
+    if(!regex.test(phone.value)){
+        showError("phone","SĐT phải 10 số")
+        return false
+    }
+
+    clearError("phone")
+    return true
+}
+
+function validatePassword(){
+
+    if(password.value.length<6){
+        showError("password","Ít nhất 6 ký tự")
+        return false
+    }
+
+    clearError("password")
+    return true
+}
+
+function validateConfirmPassword(){
+
+    if(confirmPassword.value!==password.value){
+        showError("confirmPassword","Mật khẩu không khớp")
+        return false
+    }
+
+    clearError("confirmPassword")
+    return true
+}
+
+function validateGender(){
+
+    const gender=document.querySelector('input[name="gender"]:checked')
+
+    if(!gender){
+        showError("gender","Chọn giới tính")
+        return false
+    }
+
+    clearError("gender")
+    return true
+}
+
+function validateTerms(){
+
+    if(!terms.checked){
+        showError("terms","Phải đồng ý điều khoản")
+        return false
+    }
+
+    clearError("terms")
+    return true
+}
+
+form.addEventListener("submit",function(e){
+
+    e.preventDefault()
+
+    const isValid=
+        validateFullname() &&
+        validateEmail() &&
+        validatePhone() &&
+        validatePassword() &&
+        validateConfirmPassword() &&
+        validateGender() &&
+        validateTerms()
+
+    if(isValid){
+
+        form.style.display="none"
+
+        document.getElementById("successMessage").innerText=
+        "Đăng ký thành công ! Xin chào "+fullname.value
+
+    }
+
+})
+
+</script>
+
+</body>
+</html>
